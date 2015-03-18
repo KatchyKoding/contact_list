@@ -20,7 +20,7 @@ case ARGV[0]
   when 'show'
     Contact.show(ARGV[1])
   when 'find'
-    Contact.find
+    Contact.find(ARGV[1])
 end
 
 

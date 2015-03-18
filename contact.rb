@@ -10,7 +10,7 @@ class Contact
   end
  
   def to_s
-    # TODO: return string representation of Contact
+    puts "Name : #{@name} , Email: #{@email}"
   end
  
   ## Class Methods
@@ -21,10 +21,13 @@ class Contact
       contact_db.write(contact_obj)
     end
  
-    def find(index)
-      # TODO: Will find and return contact by index
+    def find(name)
+      all_contacts = ContactDatabase.contact_collection
+      all_contacts.each do |row|
+        puts row if row.include?(name)      
+       end
     end
- 
+
     def all
       contact_db = ContactDatabase.new
       contact_db.read
@@ -34,9 +37,6 @@ class Contact
       id = id.to_i - 1
       all_contacts = ContactDatabase.contact_collection
       puts all_contacts[id]
-     # puts all_contacts[id][0] 
-     #  puts all_contacts[id][1]
-
     end
     
   end
